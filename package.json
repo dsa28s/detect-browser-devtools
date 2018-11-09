@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/dsa28s/detect-browser-devtools#readme",
   "devDependencies": {
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-stage-0": "^7.0.0",
+    "babel-core": "^6.26.3",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0"
   }
