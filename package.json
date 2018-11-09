@@ -1,0 +1,22 @@
+{
+  "name": "detect-browser-devtools",
+  "version": "1.0.0",
+  "description": "Detect browser (Chrome, IE, Firefox etc...) Developer Tools (Console) is opened",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsa28s/detect-browser-devtools.git"
+  },
+  "author": "dsa28s <Lee Sanghun (dsa28s@naver.com)> (dsa28s@naver.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsa28s/detect-browser-devtools/issues"
+  },
+  "homepage": "https://github.com/dsa28s/detect-browser-devtools#readme",
+  "devDependencies": {
+    "tslint-config-airbnb": "^5.11.0"
+  }
+}
