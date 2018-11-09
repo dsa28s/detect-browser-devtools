@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dsa28s/detect-browser-devtools#readme",
   "devDependencies": {
+    "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0"
   }
 }
