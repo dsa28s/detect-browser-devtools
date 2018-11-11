@@ -1,17 +1,15 @@
-export class ConsoleManager {
+export default class ConsoleManager {
   private static consoleManager?: ConsoleManager = null;
 
   private timerHandle: number = null;
 
-  private constructor() {
+  private constructor() { }
+
+  public static sharedInstance(): ConsoleManager {
     if (ConsoleManager.consoleManager === null) {
       ConsoleManager.consoleManager = new ConsoleManager();
     }
 
-    return ConsoleManager.consoleManager;
-  }
-
-  public static sharedInstance(): ConsoleManager {
     return ConsoleManager.consoleManager;
   }
 

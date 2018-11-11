@@ -1,4 +1,4 @@
-export class DevToolsManager {
+export default class DevToolsManager {
   private static devToolsManager?: DevToolsManager = null;
   private monitoringTimer: number = null;
 
@@ -7,13 +7,13 @@ export class DevToolsManager {
 
   private threshold: number = 150;
 
-  private constructor() {
+  private constructor() { }
+
+  public static sharedInstance(): DevToolsManager {
     if (DevToolsManager.devToolsManager === null) {
       DevToolsManager.devToolsManager = new DevToolsManager();
     }
-  }
 
-  public static sharedInstance(): DevToolsManager {
     return DevToolsManager.devToolsManager;
   }
 

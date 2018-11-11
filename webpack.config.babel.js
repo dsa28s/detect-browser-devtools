@@ -8,8 +8,8 @@ export default {
   output: {
     path: path.resolve(__dirname, '_bundles'),
     filename: '[name].js',
-    libraryTarget: 'window',
-    library: 'devToolsManager',
+    libraryTarget: 'umd',
+    library: 'DevTools',
     umdNamedDefine: true
   },
   resolve: {

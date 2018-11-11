@@ -28,9 +28,10 @@
     "tslint-config-airbnb": "^5.11.0",
     "typescript": "^3.1.6",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "shx": "^0.3.2"
   },
   "dependencies": {
-    "shx": "^0.3.2"
+    "reflect-metadata": "^0.1.12"
   }
 }

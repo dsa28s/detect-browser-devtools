@@ -1,9 +1,11 @@
-export class DebuggerManager {
+export default class DebuggerManager {
   private static debuggerManager?: DebuggerManager = null;
 
   private debuggerTimer: number = null;
 
-  private constructor() {
+  private constructor() { }
+
+  public static sharedInstance(): DebuggerManager {
     if (DebuggerManager.debuggerManager === null) {
       DebuggerManager.debuggerManager = new DebuggerManager();
     }
@@ -11,21 +13,17 @@ export class DebuggerManager {
     return DebuggerManager.debuggerManager;
   }
 
-  public static sharedInstance(): DebuggerManager {
-    return DebuggerManager.debuggerManager;
-  }
-
-  public startMonitoringDebuggerAttach(): void {
+  startMonitoringDebuggerAttach() {
     if (this.debuggerTimer !== null) {
       console.warn('Monitoring timer already running.');
 
       return;
     }
 
-    this.debuggerTimer = setInterval(() => { debugger; }, 10);
+    this.debuggerTimer = setInterval(() => { eval('debugger'); }, 10);
   }
 
-  public stopMonitoringDebuggerAttach(): void {
+  stopMonitoringDebuggerAttach() {
     if (this.debuggerTimer === null) {
       console.warn('Not running monitoring timer. ' +
         'Did you call startMonitoringDebuggerAttach() method before calling it?');

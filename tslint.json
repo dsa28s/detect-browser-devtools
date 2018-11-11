@@ -1,3 +1,8 @@
 {
-  "extends": "tslint-config-airbnb"
+  "extends": "tslint-config-airbnb",
+  "rules": {
+    "no-eval": false,
+    "variable-name": false,
+    "max-line-length": false
+  }
 }
