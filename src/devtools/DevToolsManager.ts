@@ -3,7 +3,7 @@ export default class DevToolsManager {
   private monitoringTimer: number = null;
 
   private isDevtoolOpened = false;
-  private consoleDirection = false;
+  private consoleDirection = '';
 
   private threshold: number = 150;
 
@@ -25,7 +25,7 @@ export default class DevToolsManager {
     }
 
     this.monitoringTimer = setInterval(() => { this.monitoringTimerHandler(eventListener); },
-                                       50);
+                                       1000);
   }
 
   public stopMonitoringDevTools(): void {
@@ -39,47 +39,44 @@ export default class DevToolsManager {
 
   private monitoringTimerHandler(eventListener:
                                      (isOpened: boolean, orientation: string) => any): void {
-    let isTriggered = false; // 흠... 이것도 안타면 IE 문제일수도 있고 브라우저 버전이 낮은거일수도 있으니...
+    let isTriggered = false;
+    let isOpened = false;
 
     // @ts-ignore
     // Firebug 지원이 중단됐다고는 하는데 그래도 지원은 해야겠지?
     if (window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) {
-      if (!this.isDevtoolOpened) {
-        this.isDevtoolOpened = true;
+      isOpened = true;
+      isTriggered = true;
 
-        isTriggered = true;
-      }
+      // console.info('SEC 1');
     }
 
     if (!isTriggered) {
       const devtools = /./;
       // @ts-ignore
       devtools.toString = () => {
-        if (!this.isDevtoolOpened) {
-          this.isDevtoolOpened = true;
-        }
-
+        isOpened = true;
         isTriggered = true;
 
-        return;
+        // console.info('SEC 2');
       };
+      console.log('%c', devtools);
+      console.clear();
     }
 
     if (!isTriggered) {
       // Chrome 구버전에서 사용하기
-      if (console.profile) {
+      // @ts-ignore
+      if (console.profiles !== undefined && console.profiles !== null) {
         console.profile();
         console.profileEnd();
 
         // @ts-ignore
         if (console.profiles.length > 0) {
-          if (!this.isDevtoolOpened) {
-            this.isDevtoolOpened = true;
+          isOpened = true;
+          isTriggered = true;
 
-            isTriggered = true;
-
-            return;
-          }
+          // console.info('SEC 3');
         }
       }
     }
@@ -87,15 +84,23 @@ export default class DevToolsManager {
     const wt = window.outerWidth - window.innerWidth > this.threshold;
     const ht = window.outerHeight - window.innerHeight > this.threshold;
 
-    let orientation = wt ? 'vertical' : 'horizontal';
-    orientation = this.isDevtoolOpened && !wt && !ht ? 'seperated-window' : orientation;
+    // console.log(isOpened, wt, ht);
 
-    if (isTriggered) { // 위에서 처리됐으면
+    let orientation = wt ? 'vertical' : 'horizontal';
+    orientation = isOpened && !wt && !ht ? 'seperated-window' : orientation;
+    orientation = !isOpened ? 'closed' : orientation;
+
+    if (!isTriggered) { // 위에서 처리됐으면
       if (wt || ht) {
-        this.isDevtoolOpened = true;
+        isOpened = true;
       }
     }
 
-    eventListener(this.isDevtoolOpened, orientation);
+    if (this.isDevtoolOpened !== isOpened || this.consoleDirection !== orientation) {
+      this.isDevtoolOpened = isOpened;
+      this.consoleDirection = orientation;
+
+      eventListener(this.isDevtoolOpened, orientation);
+    }
   }
 }

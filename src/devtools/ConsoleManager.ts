@@ -18,7 +18,7 @@ export default class ConsoleManager {
       return;
     }
 
-    this.timerHandle = setInterval(() => { console.clear(); }, 10);
+    this.timerHandle = setInterval(() => { console.clear(); }, 1000);
   }
 
   public disableAlwaysClearConsole(): void {

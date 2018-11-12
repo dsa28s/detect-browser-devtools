@@ -16,7 +16,7 @@ export const CheckRequiredParameters = (target: any, propertyName: string, descr
     if (requiredParameters) {
       for (const parameterIndex of requiredParameters) {
         if (parameterIndex >= arguments.length || arguments[parameterIndex] === undefined) {
-          throw new Error(`Error. Missing parameters ${propertyName} method.`);
+          throw new Error(`Missing parameters ${propertyName} method.`);
         }
       }
     }
