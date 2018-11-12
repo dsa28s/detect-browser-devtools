@@ -1,6 +1,6 @@
 {
   "name": "browser-detect-devtools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Detect browser (Chrome, IE, Firefox etc...) Developer Tools (Console) is opened",
   "scripts": {
     "clean": "shx rm -rf _bundles lib",
