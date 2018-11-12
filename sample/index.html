@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>DevTools Detect Sample</title>
-  <script src="../_bundles/lib.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js"></script>
+  <script src="../_bundles/lib.js"></script>
+  <style>
+    p {
+      font-weight: 100;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .main-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: table;
+    }
+  </style>
+  <script>
+    DevTools.Manager.startDevToolMonitoring(function (isOpened, orientation) {
+      document.getElementById('devToolsText').innerHTML = 'DevTools Status > isOpened : ' + isOpened + ' / mode : ' + orientation;
+    })
+  </script>
 </head>
 <body>
-
+  <div class="main-content">
+    <p id="devToolsText">DevTools Status > Emitting...</p>
+  </div>
 </body>
 </html>
