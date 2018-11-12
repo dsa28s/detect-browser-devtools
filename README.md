@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/dsa28s/detect-browser-devtools/master/resources/icon.png" width="100" height="100">
 </p>
 
-<h1 align="center">detect-browser-devtools<h1>
+<h1 align="center">detect-browser-devtools</h1>
 <h4 align="center">Detect browser (Chrome, IE, Firefox etc...) Developer Tools (Console) is opened</h4>
 <p align="center">
   <img src="https://img.shields.io/badge/browser--detect--devtools-1.0.0-blue.svg?style=flat-square&logo=npm">
