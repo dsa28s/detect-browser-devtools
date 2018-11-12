@@ -1,6 +1,6 @@
 {
   "name": "browser-detect-devtools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect browser (Chrome, IE, Firefox etc...) Developer Tools (Console) is opened",
   "scripts": {
     "clean": "shx rm -rf _bundles lib",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "lib"
+    "lib", "dist"
   ],
   "repository": {
     "type": "git",
