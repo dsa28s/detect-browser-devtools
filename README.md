@@ -26,7 +26,8 @@ Use cdn:
 <script src="https://unpkg.com/browser-detect-devtools/dist/detect-browser-devtools.min.js"></script>
 ```
 
-## Usage (NPM)
+## Usage
+### NPM
 ```javascript
 const devTools = require('browser-detect-devtools');
 const devToolsManager = devTools.Manager;
@@ -51,6 +52,30 @@ devToolsManager.startDevToolMonitoring((isOpened, orientation) => {
 
 // Stop monitoring devtools event.
 devToolsManager.stopDevToolMonitoring();
+```
+
+### CDN
+CDN create instance to global variable.
+
+```javascript
+// Always want to clear console log of the browser's developer tools, use `alwaysConsoleClear` API.
+DevTools.Manager.alwaysConsoleClear(true); // enable function
+DevTools.Manager.alwaysConsoleClear(false); // disable function
+
+// Pause the browser session when Browser's developer tools are open, use `freezeWhenDevToolsOpened` API.
+DevTools.Manager.freezeWhenDevToolsOpened(true); // enable function
+DevTools.Manager.freezeWhenDevToolsOpened(false); // disable function
+
+// You can also receive events developer tools are opened, closed, and get position.
+// IMPORTANT : Use this function only when in release mode.
+// If you call this method, the console.log is reset regardless of the alwaysConsoleClear function called.
+
+DevTools.Manager.startDevToolMonitoring((isOpened, orientation) => {
+  // orientation : 'horizontal' / 'vertical' / 'separated-window'
+});
+
+// Stop monitoring devtools event.
+DevTools.Manager.stopDevToolMonitoring();
 ```
 
 See the top gif image in the README.md file for details on how to do this.
