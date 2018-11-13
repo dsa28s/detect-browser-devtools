@@ -45,7 +45,6 @@ devToolsManager.freezeWhenDevToolsOpened(false); // disable function
 // You can also receive events developer tools are opened, closed, and get position.
 // IMPORTANT : Use this function only when in release mode.
 // If you call this method, the console.log is reset regardless of the alwaysConsoleClear function called.
-
 devToolsManager.startDevToolMonitoring((isOpened, orientation) => {
   // orientation : 'horizontal' / 'vertical' / 'separated-window'
 });
@@ -69,7 +68,6 @@ DevTools.Manager.freezeWhenDevToolsOpened(false); // disable function
 // You can also receive events developer tools are opened, closed, and get position.
 // IMPORTANT : Use this function only when in release mode.
 // If you call this method, the console.log is reset regardless of the alwaysConsoleClear function called.
-
 DevTools.Manager.startDevToolMonitoring((isOpened, orientation) => {
   // orientation : 'horizontal' / 'vertical' / 'separated-window'
 });
