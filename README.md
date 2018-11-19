@@ -5,7 +5,7 @@
 <h1 align="center">detect-browser-devtools</h1>
 <h4 align="center">Detect browser (Chrome, IE, Firefox etc...) Developer Tools (Console) is opened</h4>
 <p align="center">
-  <img src="https://img.shields.io/badge/browser--detect--devtools-1.0.4-blue.svg?style=flat-square&logo=npm">
+  <img src="https://img.shields.io/badge/browser-detect-devtools-1.0.4-blue.svg?style=flat-square&logo=npm">
   <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square">
 </p>
 
