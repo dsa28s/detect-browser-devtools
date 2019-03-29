@@ -5,7 +5,7 @@
 <h1 align="center">detect-browser-devtools</h1>
 <h4 align="center">Detect browser (Chrome, IE, Firefox etc...) Developer Tools (Console) is opened</h4>
 <p align="center">
-  <img src=https://img.shields.io/badge/browser--detect--devtools-1.0.4-blue.svg?style=flat-square&logo=npm">
+  <img src=https://img.shields.io/badge/somul--project--homepage-0.1-information.svg?style=flat-square>
   <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square">
 </p>
 
@@ -13,70 +13,32 @@
   <img src="https://raw.githubusercontent.com/dsa28s/detect-browser-devtools/master/resources/20181113020043.gif">
 </p>
 
-## Install
-Use npm:
+## 프로젝트 구축방법
+해당 프로젝트를 로컬에서 실행하기 위해서는 아래의 명령어를 입력하여 사전 준비 작업이 필요합니다.
 
 ```bash
-$ npm install browser-detect-devtools
+$ npm install
 ```
 
-Use cdn:
-
-```html
-<script src="https://unpkg.com/browser-detect-devtools/dist/detect-browser-devtools.min.js"></script>
+### 로컬에서 개발하기 (소스코드를 저장하면, 자동으로 컴파일되고 새로고침 됨)
+```
+npm run serve
 ```
 
-## Usage
-### NPM
-```javascript
-const devTools = require('browser-detect-devtools');
-const devToolsManager = devTools.Manager;
+### 배포하기 위해 빌드하기 (HTML로 컴파일)
+```
+npm run build
 ```
 
-```javascript
-// Always want to clear console log of the browser's developer tools, use `alwaysConsoleClear` API.
-devToolsManager.alwaysConsoleClear(true); // enable function
-devToolsManager.alwaysConsoleClear(false); // disable function
-
-// Pause the browser session when Browser's developer tools are open, use `freezeWhenDevToolsOpened` API.
-devToolsManager.freezeWhenDevToolsOpened(true); // enable function
-devToolsManager.freezeWhenDevToolsOpened(false); // disable function
-
-// You can also receive events developer tools are opened, closed, and get position.
-// IMPORTANT : Use this function only when in release mode.
-// If you call this method, the console.log is reset regardless of the alwaysConsoleClear function called.
-devToolsManager.startDevToolMonitoring((isOpened, orientation) => {
-  // orientation : 'horizontal' / 'vertical' / 'separated-window'
-});
-
-// Stop monitoring devtools event.
-devToolsManager.stopDevToolMonitoring();
+### 단위 테스트 (Unit Test) 돌리기
+```
+npm run test
 ```
 
-### CDN
-CDN create instance to global variable.
-
-```javascript
-// Always want to clear console log of the browser's developer tools, use `alwaysConsoleClear` API.
-DevTools.Manager.alwaysConsoleClear(true); // enable function
-DevTools.Manager.alwaysConsoleClear(false); // disable function
-
-// Pause the browser session when Browser's developer tools are open, use `freezeWhenDevToolsOpened` API.
-DevTools.Manager.freezeWhenDevToolsOpened(true); // enable function
-DevTools.Manager.freezeWhenDevToolsOpened(false); // disable function
-
-// You can also receive events developer tools are opened, closed, and get position.
-// IMPORTANT : Use this function only when in release mode.
-// If you call this method, the console.log is reset regardless of the alwaysConsoleClear function called.
-DevTools.Manager.startDevToolMonitoring((isOpened, orientation) => {
-  // orientation : 'horizontal' / 'vertical' / 'separated-window'
-});
-
-// Stop monitoring devtools event.
-DevTools.Manager.stopDevToolMonitoring();
+### 코드 스타일 검사하기
 ```
-
-See the top gif image in the README.md file for details on how to do this.
+npm run lint
+```
 
 ## License
 MIT
